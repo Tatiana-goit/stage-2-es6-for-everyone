@@ -24,7 +24,7 @@ function createModal({ title, bodyElement, onClose }) {
 
 function createHeader(title, onClose) {
   const headerElement = createElement({ tagName: 'div', className: 'modal-header' });
-  const titleElement = createElement({ tagName: 'span' });
+  const titleElement = createElement({ tagName: 'span', className: 'modal-title' });
   const closeButton = createElement({ tagName: 'div', className: 'close-btn' });
   
   titleElement.innerText = title;

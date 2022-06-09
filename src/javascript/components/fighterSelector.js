@@ -30,7 +30,7 @@ export async function getFighterInfo(fighterId) {
       fighterDetailsMap.set(fighterId, fighterInfo);
       return fighterInfo;
     } catch (error) {
-      throw error;
+      console.warn(error);
     }
 }
 
