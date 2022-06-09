@@ -11,3 +11,17 @@
 .fighter-preview___left {
   align-items: flex-start;
 }
+
+.fighter-preview___user {
+  background: rgb(92, 80, 80);
+  margin-bottom: 5px;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-bottom: 14px;
+  font-size: 22px;
+  color: rgb(234, 226, 131)
+}
+
+.fighter-preview___img {
+  height: 400px;
+}

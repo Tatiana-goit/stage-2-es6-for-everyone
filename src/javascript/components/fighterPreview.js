@@ -7,7 +7,20 @@ export function createFighterPreview(fighter, position) {
     className: `fighter-preview___root ${positionClassName}`,
   });
 
-  // todo: show fighter info (image, name, health, etc.)
+  // +- todo: show fighter info (image, name, health, etc.)
+  const { name, health, attack, defense } = fighter;
+  const fighterImage = createFighterImage(fighter);
+  const fighterInfo = createElement({
+    tagName: 'div',
+    className: `fighter-preview___user`,
+  });
+  
+  fighterInfo.innerHTML = `
+  <h2>${name}</h2>
+  <div>Health: ${health}</div>
+  <div>Attack: ${attack}</div>
+  <div>Defense: ${defense}</div>`;
+  fighterElement.append(fighterImage, fighterInfo);
 
   return fighterElement;
 }
