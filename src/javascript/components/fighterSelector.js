@@ -25,7 +25,8 @@ export async function getFighterInfo(fighterId) {
   if (fighterDetailsMap.has(fighterId)) {
     return fighterDetailsMap.get(fighterId);
   } else
-    try {
+    try 
+    {
       const fighterInfo = await fighterService.getFighterDetails(fighterId);
       fighterDetailsMap.set(fighterId, fighterInfo);
       return fighterInfo;

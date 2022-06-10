@@ -2,7 +2,7 @@ import { controls } from '../../constants/controls';
 
 export async function fight(firstFighter, secondFighter) {
   return new Promise((resolve) => {
-    // resolve the promise with the winner when fight is over
+    // + resolve the promise with the winner when fight is over
     const leftFighterIndicator = document.getElementById('left-fighter-indicator');
     const rightFighterIndicator = document.getElementById('right-fighter-indicator');
 
@@ -18,17 +18,15 @@ export async function fight(firstFighter, secondFighter) {
     };
 
     document.addEventListener('keydown', function (event) {
-      const currentAction = event.code;
+      const action = event.code;
 
-      switch (currentAction) {
+      switch (action) {
         case controls.PlayerOneAttack:
-          if (!isBlockRight && !isBlockLeft) {
+          if (!isBlockRight && !isBlockLeft) { 
             state.fighterRight.health -= getDamage(firstFighter, secondFighter);
             state.fighterRight.health = state.fighterRight.health < 0 ? 0 : state.fighterRight.health;
-            // rightFighterIndicator.style.width = (100 * state.fighterRight.health) / secondFighter.health + '%';
+            rightFighterIndicator.style.width = (100 * state.fighterRight.health) / secondFighter.health + '%';
           }
-          rightFighterIndicator.style.width = Number.parseInt(rightFighterIndicator.style.width) - 10 + '%';
-          console.log(Number.parseInt(rightFighterIndicator.style.width));
           break;
 
         case controls.PlayerTwoAttack:
@@ -59,9 +57,9 @@ export async function fight(firstFighter, secondFighter) {
     });
 
     document.addEventListener('keyup', function (event) {
-      const currentAction = event.code;
+      const action = event.code;
 
-      switch (currentAction) {
+      switch (action) {
         case controls.PlayerOneBlock:
           isBlockLeft = false;
           break;
@@ -78,14 +76,14 @@ export async function fight(firstFighter, secondFighter) {
 }
 
 export function getDamage(attacker, defender) {
-  // return damage - ущерб
+  // + return damage
   const hitPower = getHitPower(attacker);
   const blockPower = getBlockPower(defender);
   return blockPower > hitPower ? 0 : hitPower - blockPower;
 }
 
 export function getHitPower(fighter) {
-  // return hit power - удар
+  // + return hit power 
   const { attack } = fighter;
   const criticalHitChance = Math.random() + 1;
   const power = attack * criticalHitChance;
@@ -93,7 +91,7 @@ export function getHitPower(fighter) {
 }
 
 export function getBlockPower(fighter) {
-  // return block power
+  // + return block power
   const { defense } = fighter;
   const dodgeChance = Math.random() + 1;
   const power = defense * dodgeChance;
